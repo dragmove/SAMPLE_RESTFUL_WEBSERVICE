@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*@import url('./index.css');*/
+
+/* custom */
+.hide {position:absolute; top:-9999em; left:-9999em;}
+
+/* reset css */
+html,
+body {margin:0; padding:0; line-height:1;}
+div, ul, ol, li, dl, dt, dd, form, fieldset, input, button, p, h1, h2, h3, h4, h5, h6, blockquote, iframe, th, td, legend, caption {margin:0; padding:0; border:none;}
+
+/* html5 */
+article, aside, canvas, details, embed, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, video {display:block;}
+command, datalist, keygen, mark, meter, progress, rp, rt, ruby, time, wbr, audio {display:inline;}
+
+ol, ul, li {list-style: none;}
+img {border:none;}
+
+/* form */
+legend {position:absolute; font-size:0; top:-9999em; left:-9999em;}
+input, select, button {vertical-align:middle;}
+
+/* table */
+table {border-collapse:collapse; border-spacing:0;}
+
+/* Project Reset 
+
+fieldset, img { border:0;}
+caption, th { text-align:left;}
+hr, caption, legend {  display:none;}
+h1,h2,h3,h4,h5,h6 {	font-size:100%; font-weight:normal;}
+q:before, q:after { content:'';}
+abbr, acronym {	border:0; font-variant:normal;}
+sup { vertical-align:text-top;} sub { vertical-align:text-bottom;}
+input,textarea,select { font-family:inherit; font-size:inherit; font-weight:inherit;}
+* html input,textarea,select { font-size:100%;}
+
+body { font-size:12px; color:#999; font-family: "Segoe UI","SegoeUI","Segoe","verdana","Tahoma","SimSun","SimHei","Microsoft YaHei",'Dotum','Gulim','serif';}
+a { color:#999; text-decoration:none;}
+a:hover { text-decoration:underline;}
+button { background:transparent; cursor:pointer; vertical-align:middle; margin:0; }
+
+/* font 
+i, em, u, cite { font-style:normal; }
+
+select, input, textarea { color:#888; font-family:'돋움', dotum, verdana, arial, applegothic, sans-serif; font-size:inherit; vertical-align:middle; }
+select { /*visibility:hidden;}
+fieldset, blockquote, iframe, button { border:none; }
+fieldset { display:inline; }
+fieldset label { display:none;}
+
+
+/* form 
+.input_txt { height:23px; padding:1px 0 0 3px; font:12px/18px '돋움',Dotum; background:#fff; border:1px solid #ddd; /*border-top:1px solid #a7a7a7; border-right:1px solid #d7d7d7; border-bottom:1px solid #e5e5e5; border-left:1px solid #878787; }
+.input_file { height:22px; font:12px/18px '돋움',Dotum; color:#666; background:#fff; border:1px solid #ddd; }
+.input_textarea { padding:3px; font:12px/18px '돋움',Dotum; color:#666; background:#fff; border:1px solid #ddd; 
+/*border-top:1px solid #a7a7a7; border-right:1px solid #d7d7d7; border-bottom:1px solid #e5e5e5; border-left:1px solid #878787; overflow:auto; overflow-x:hidden; }
+
+/* clear 
+.f_clear:after { content:""; height:0; display:block; visibility:; clear:both;}
+*html .f_clear { height:1%;}
+.f_clear { display:block; min-height:1%;}
+
+/*word-break
+.word-break { word-break:break-all;}
+html>/*body .word-break{word-wrap:break-word;}
+
+/* Radiobox, Checkbox 디자인 : ie8 이하 버전 적용 안됨. 
+input[type="checkbox"],input[type="radio"] { position:absolute;opacity:0; }
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
+    content:""; display:inline-block; 
+    vertical-align:top; background-repeat:no-repeat; background-position:left top;
+}
+input[type="checkbox"] + label::before { margin:2px 9px 0 0; }
+input[type="radio"] + label::before { margin:0px 9px 0 0; }
+
+input[type="checkbox"] + label { cursor:pointer; vertical-align:top; }
+input[type="checkbox"] + label:before { width:11px; height:11px; background-image:url('../images/common/checkbox.png'); }
+input[type="checkbox"]:not(:checked):hover + label:before { /*background-position:0 -13px; }
+input[type="checkbox"]:checked + label:before { background-position:0 -11px; }
+input[type="checkbox"]:focus + label { outline: dotted 1px; }
+input[type="checkbox"]:disabled + label { border:1px dotted gray; }
+
+input[type="radio"] + label { cursor:pointer; vertical-align:top; }
+input[type="radio"] + label:before { width:16px; height:16px; background-image:url('../images/common/radiobox.png'); }
+input[type="radio"]:hover + label:before { /*background-position: -13px -13px; }
+input[type="radio"]:checked + label:before { background-position: left -16px; }
+input[type="radio"]:focus + label { outline: dotted 1px; }
+input[type="radio"]:disabled + label { border:1px dotted gray; }
+
+
+
+.formSelector { display:inline-block; height:23px; position:relative; vertical-align:middle; background:white url('../images/common/bg_select_anchor.gif') no-repeat right 10px; border:1px solid #ddd; cursor:pointer; }
+.formSelector select { position:absolute; left:0; top:0; z-index:20; cursor:pointer; }
+.formSelector .designDummy { 
+	position:absolute; left:0; top:0; right:0; height:20px; z-index:10; 
+	padding:4px 20px 1px 9px; 
+	background:url('../images/common/bg_select_left.gif') no-repeat left top; 
+}
+.formSelector .designDummy strong { 
+	text-overflow:ellipsis; white-space:nowrap; overflow:hidden; display:block;
+	font-size:12px; color:#888888; 
+}
+
+.formSelector.focus { background-image:url('../images/common/bg_select_anchor_up.gif'); border:1px solid #E51937; }
+
+.inputFileType { position:relative; cursor:pointer; display:inline-block; }
+.inputFileType label { display:inline-block !important; margin-left:7px; vertical-align:top; background:url('../images/common/btn_filetxt.gif') no-repeat left top; width:70px; height:25px; text-indent:-999999em; cursor:pointer; }
+.inputFileType input[type=file] { position:absolute; left:0; top:0; width:308px; height:20px; line-height:20px; padding:2px 5px 1px; cursor:pointer; z-index:1; }
+.inputFileType input[type=text] { border:1px solid #ddd; padding:2px 5px 1px; vertical-align:top; line-height:20px; position:relative; z-index:5; }
+
+*/

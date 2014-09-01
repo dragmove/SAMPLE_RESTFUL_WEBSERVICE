@@ -1,0 +1,76 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'fs',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 warn package.json _20140825_TEST_SAMMY_JS@0.0.0 No description
+5 warn package.json _20140825_TEST_SAMMY_JS@0.0.0 No repository field.
+6 warn package.json _20140825_TEST_SAMMY_JS@0.0.0 No README data
+7 warn package.json JSV@4.0.2 'repositories' (plural) Not supported. Please pick one as the 'repository' field
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'fs', null ]
+10 verbose cache add name=undefined spec="fs" args=["fs",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'fs',
+11 verbose parsed url   path: 'fs',
+11 verbose parsed url   href: 'fs' }
+12 silly lockFile 3f4bb586-fs fs
+13 verbose lock fs C:\Users\vuild\AppData\Roaming\npm-cache\3f4bb586-fs.lock
+14 silly lockFile 3f4bb586-fs fs
+15 silly lockFile 3f4bb586-fs fs
+16 verbose addNamed [ 'fs', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile a107b96b-fs fs@
+19 verbose lock fs@ C:\Users\vuild\AppData\Roaming\npm-cache\a107b96b-fs.lock
+20 silly addNameRange { name: 'fs', range: '*', hasData: false }
+21 verbose url raw fs
+22 verbose url resolving [ 'https://registry.npmjs.org/', './fs' ]
+23 verbose url resolved https://registry.npmjs.org/fs
+24 info trying registry request attempt 1 at 21:28:39
+25 http GET https://registry.npmjs.org/fs
+26 http 404 https://registry.npmjs.org/fs
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Thu, 28 Aug 2014 12:28:39 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"5BQZWWEVHQEXWCPP0V3B1TODR"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '397',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-ty67-TYO',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1409228919.491134,VS0,VE129',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile a107b96b-fs fs@
+29 silly lockFile a107b96b-fs fs@
+30 error 404 Not Found
+30 error 404
+30 error 404 'fs' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404 It was specified as a dependency of '_20140825_TEST_SAMMY_JS'
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Windows_NT 6.1.7601
+32 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "fs" "--save-dev"
+33 error cwd d:\99_TEST\_20140825_TEST_RESTFUL_WEBSERVICE
+34 error node -v v0.10.29
+35 error npm -v 1.4.14
+36 error code E404
+37 verbose exit [ 1, true ]
