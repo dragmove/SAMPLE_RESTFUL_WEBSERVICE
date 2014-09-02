@@ -19,6 +19,17 @@ app.use(bodyParser.json()); // parse application/json
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 app.use(express.static(__dirname + '/public'));
 
+
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+var session = require('express-session');
+app.use(session({
+	secret:'test',
+	saveUninitialized:true,
+	resave: true,
+}));
+
 var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
     app.use(morgan('combined'));

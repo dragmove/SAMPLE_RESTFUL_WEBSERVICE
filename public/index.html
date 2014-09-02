@@ -12,13 +12,28 @@
         		position:relative;
         	}
         </style>
+        <script src="js/lib/jquery/jquery-1.7.0.min.js"></script>
     </head>
 
     <body>
         <div class="wrapper">
-            <input type="text" name="login_name" id="login_name" placeholder="user name">
-            <input type="text" name="password" id="password"  placeholder="password">
-            <button id="login">login</button>
+            <form method="post" action="/user/join" name="login_form">
+                <input type="text" name="login_id" id="login_id" placeholder="id">
+                <input type="text" name="password" id="password"  placeholder="password">
+                <input type="submit" name="submit" />
+            </form>
         </div>
     </body>
+
+    <script type="text/javascript">
+        (function($) {
+          $(document).ready(function() {
+            init();
+
+            function init() {
+                console.log('init');
+            }
+          });
+        })(jQuery);
+    </script>
 </html>

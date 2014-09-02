@@ -10,6 +10,8 @@ var ObjectID = new require('mongodb').ObjectID,
 		'user': {}
 	};
 
+var crypto = require('crypto');
+
 var mongoClient = new MongoClient(new Server('localhost', 27017)),
 	db;
 
@@ -51,6 +53,12 @@ var fsHandle = require('fs'),
 
 var configRoutes = function(app, server) {
 	/*
+	 * /:obj_type/create, /:obj_type/list, /:obj_type/read/:id, /:obj_type/delete/:id, /:obj_type/update/:id
+	 * /:obj_type/me, /:obj_type/logout, /:obj_type/login 
+	 *
+	 */
+
+	/*
 	 * redirect
 	 */
 	app.get('/', function(req, res) {
@@ -66,6 +74,105 @@ var configRoutes = function(app, server) {
 		}else{
 			res.send({
 				error_msg : req.params.obj_type + ' is not a valid object type'
+			});
+		}
+	});
+
+	app.post('/:obj_type/login', function(req, res) {
+		var loginId = req.param('login_id'),
+			password = req.param('password');
+
+		if(loginId && password) {
+			var collection = db.collection(req.params.obj_type);
+			collection.findOne( {login_id:loginId}, function(err, result) {
+				if(result) {
+					var shasum = crypto.createHash('sha1');
+					shasum.update(password);
+					var hash = shasum.digest('hex');
+
+					if(hash === result.hash) {
+						//go success login page
+
+						req.session.me = result;
+						res.status(200).send({
+							msg : 'success'
+						});
+					}else{
+						res.status(400).send({
+							error_msg : 'not valid password'
+						});
+					}
+				}else{
+					res.status(400).send({
+						error_msg : 'not member'
+					});
+				}
+			});
+		} else {
+			res.status(400).send({
+				error_msg : 'params not valid'
+			});
+		}
+	});
+
+	app.get('/:obj_type/logout', function(req, res) {
+		if(req.session.me) {
+			req.session.destroy();
+			res.status(200).send({
+				msg : 'success logout'
+			});
+		}else{
+			res.status(401).send({
+				error_msg : 'not authorized.'
+			});
+		}
+	});
+
+	app.get('/:obj_type/me', function(req, res) {
+		if(req.session.me) {
+			res.status(200).send({
+				msg : req.session.me
+			});
+		}else{
+			res.status(401).send({
+				error_msg : 'not authorized.'
+			});
+		}
+	});
+
+	app.post('/:obj_type/join', function(req, res) {
+		var loginId = req.param('login_id'),
+			password = req.param('password');
+
+		if(loginId && password) {
+			var collection = db.collection(req.params.obj_type);
+			collection.findOne( {login_id:loginId}, function(err, result) {
+				if(result) {
+					//Status code 409
+					res.status(409).send({
+						error_msg:'HTTP Error 409 Conflict'
+					});
+				}else{
+					var shasum = crypto.createHash('sha1');
+					shasum.update(password);
+					var hash = shasum.digest('hex');
+
+					var options = {};
+					collection.insert( {login_id:loginId, hash:hash}, options, function(innerErr, innerResult) {
+						if(innerErr) {
+							res.status(500).send({
+								error_msg:'HTTP Error 500 Internal server error'
+							});
+						}else{
+							//complete join member
+							res.send(innerResult);
+						}
+					});
+				}
+			});
+		} else {
+			res.send({
+				error_msg : '400 error'
 			});
 		}
 	});
